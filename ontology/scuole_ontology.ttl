@@ -1,0 +1,239 @@
+@prefix : <http://www.semanticweb.org/andre/scuole-sicilia/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@base <http://www.semanticweb.org/andre/scuole-sicilia/ontology/> .
+
+<http://www.semanticweb.org/andre/scuole-sicilia/ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasAmbiente
+:hasAmbiente rdf:type owl:ObjectProperty ;
+             rdfs:domain :Scuola ;
+             rdfs:range :Ambiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasValutazione
+:hasValutazione rdf:type owl:ObjectProperty ;
+                rdfs:domain :Scuola ;
+                rdfs:range :Valutazione .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/IsVicinoAltriDisturbi
+:IsVicinoAltriDisturbi rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasAlunni
+:hasAlunni rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Scuola ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasAlunniHand
+:hasAlunniHand rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Scuola ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasAnnoRilevazione
+:hasAnnoRilevazione rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Ambiente ,
+                                :Scuola ,
+                                :Valutazione ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasAreaNonRecintata
+:hasAreaNonRecintata rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasClassi
+:hasClassi rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Scuola ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasCodiceCriterio
+:hasCodiceCriterio rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Valutazione ;
+                   rdfs:range xsd:short .
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasComune
+:hasComune rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Scuola ;
+             rdfs:range xsd:anyURI, xsd:string .
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasCodiceScuola
+:hasCodiceScuola rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Scuola ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasCriticitaSpecifiche
+:hasCriticitaSpecifiche rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasMotivazionePunteggio
+:hasMotivazionePunteggio rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :Valutazione ;
+                         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasNomeCriterio
+:hasNomeCriterio rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Valutazione ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasPiazzolaAdeguata
+:hasPiazzolaAdeguata rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasPreesistenzeIndustrialiAbbandonate
+:hasPreesistenzeIndustrialiAbbandonate rdf:type owl:DatatypeProperty ;
+                                       rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasPresenzaGrandeTraffico
+:hasPresenzaGrandeTraffico rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasPresenzaTransitoFerroviario
+:hasPresenzaTransitoFerroviario rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasPunteggio
+:hasPunteggio rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Valutazione ;
+              rdfs:range xsd:short .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasPunteggioAmbiente
+:hasPunteggioAmbiente rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Ambiente ;
+                      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasTipoIstituto
+:hasTipoIstituto rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Scuola ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/hasZonaUrbanaDegradata
+:hasZonaUrbanaDegradata rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isContestoSenzaDisturbi
+:isContestoSenzaDisturbi rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoAcqueInquinanti
+:isVicinoAcqueInquinanti rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoCimiteri
+:isVicinoCimiteri rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoDiscarica
+:isVicinoDiscarica rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoFontiInquinamentoAcustico
+:isVicinoFontiInquinamentoAcustico rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoFontiInquinamentoAtmosferico
+:isVicinoFontiInquinamentoAtmosferico rdf:type owl:DatatypeProperty ;
+                                      rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoIndustrieARischio
+:isVicinoIndustrieARischio rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoIndustrieInquinanti
+:isVicinoIndustrieInquinanti rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/isVicinoSorgentiRadiazioniElettromagnetiche
+:isVicinoSorgentiRadiazioniElettromagnetiche rdf:type owl:DatatypeProperty ;
+                                             rdfs:subPropertyOf :hasPunteggioAmbiente .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/Ambiente
+:Ambiente rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/CompetenzeEuropee
+:CompetenzeEuropee rdf:type owl:Class ;
+                   rdfs:subClassOf :Valutazione .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/RisultatiDistanza
+:RisultatiDistanza rdf:type owl:Class ;
+                   rdfs:subClassOf :Valutazione .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/RisultatiNazionali
+:RisultatiNazionali rdf:type owl:Class ;
+                    rdfs:subClassOf :Valutazione .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/RisultatiScolastici
+:RisultatiScolastici rdf:type owl:Class ;
+                     rdfs:subClassOf :Valutazione .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/Scuola
+:Scuola rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/andre/scuole-sicilia/ontology/Valutazione
+:Valutazione rdf:type owl:Class .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CompetenzeEuropee
+                :RisultatiDistanza
+                :RisultatiNazionali
+                :RisultatiScolastici
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
